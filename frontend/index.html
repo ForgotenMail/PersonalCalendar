@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Calendar</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="left-controls">
+        <button id="todayBtn">Today</button>
+        <button id="prevBtn" aria-label="Previous period">◀</button>
+        <button id="nextBtn" aria-label="Next period">▶</button>
+        <h1 id="currentLabel"></h1>
+      </div>
+
+      <div class="right-controls">
+        <div class="view-toggle" role="group" aria-label="Calendar view">
+          <button data-view="month" class="view-btn active">Month</button>
+          <button data-view="week" class="view-btn">Week</button>
+          <button data-view="day" class="view-btn">Day</button>
+        </div>
+        <button id="addEventBtn" class="primary">+ Add event</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="calendar" class="calendar"></section>
+    </main>
+
+    <dialog id="eventDialog">
+      <form id="eventForm" method="dialog">
+        <h2 id="dialogTitle">Add event</h2>
+
+        <label>
+          Title
+          <input type="text" name="title" required maxlength="80" />
+        </label>
+
+        <label>
+          Description
+          <textarea name="description" rows="3" maxlength="300"></textarea>
+        </label>
+
+        <label>
+          Location
+          <input type="text" name="location" maxlength="120" />
+        </label>
+
+        <div class="grid-two">
+          <label>
+            Start
+            <input type="datetime-local" name="start" required />
+          </label>
+
+          <label>
+            End
+            <input type="datetime-local" name="end" required />
+          </label>
+        </div>
+
+        <div class="grid-two">
+          <label>
+            Color
+            <input type="color" name="color" value="#3b82f6" />
+          </label>
+
+          <label class="checkbox">
+            <input type="checkbox" name="allDay" />
+            All day
+          </label>
+        </div>
+
+        <menu>
+          <button value="cancel">Cancel</button>
+          <button value="submit" class="primary">Save</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <script src="main.js"></script>
+  </body>
+</html>
